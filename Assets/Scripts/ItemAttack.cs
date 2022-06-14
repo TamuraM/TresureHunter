@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ItemAttack : MonoBehaviour
 {
-    [SerializeField] SelectItem _selectItem;
     [SerializeField] SceneChanger _gameOver;
     [SerializeField] Text _useText;
 
@@ -13,20 +12,32 @@ public class ItemAttack : MonoBehaviour
     {
         _useText.enabled = false;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            _useText.enabled = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            _useText.enabled = false;
+        }
+    }
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Enemy" && Input.GetKeyDown(KeyCode.Space))
+        if(other.gameObject.tag == "Enemy")
         {
-            if (_selectItem._isUseItem)
+            if(GameManager.Instance._isUseItem && Input.GetKeyDown(KeyCode.Space)) //GameManager.Instance._hasLighter &&
             {
-                _useText.enabled = true;
-                Debug.Log(5);
                 other.gameObject.SetActive(false);
             }
-            else if(_selectItem._isUseFakeItem)
+            else if (GameManager.Instance._isUseFakeItem && Input.GetKeyDown(KeyCode.Space)) //_selectItem._isUseFakeItem &&
             {
-                _useText.enabled = true;
                 _gameOver.LoadGameOverScene();
             }
         }

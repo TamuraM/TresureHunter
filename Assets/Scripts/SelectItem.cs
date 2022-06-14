@@ -1,17 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SelectItem : MonoBehaviour
 {
-    //[SerializeField] Text _useText;
     [SerializeField] GameObject _frontRange1Renderer;
     [SerializeField] GameObject _frontRange2Renderer;
     [SerializeField] GameObject _RightRangeRenderer;
     [SerializeField] GameObject _LeftRangeRenderer;
-    public bool _isUseItem;
-    public bool _isUseFakeItem;
 
     private void Start()
     {
@@ -26,13 +22,13 @@ public class SelectItem : MonoBehaviour
     {
         //_useText.enabled = true;
         _frontRange1Renderer.SetActive(true);
-        _isUseFakeItem = true;
+        GameManager.Instance._isUseFakeItem = true;
     }
 
     public void UseLighter()
     {
         //_useText.enabled = true;
         _frontRange1Renderer.SetActive(true);
-        _isUseItem = true;
+        GameManager.Instance._isUseItem = true;
     }
 }

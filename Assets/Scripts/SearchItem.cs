@@ -11,7 +11,6 @@ public class SearchItem : MonoBehaviour
 
     private void Start()
     {
-        //searchText = GetComponent<Text>();
         searchText.enabled = false;
         isPen = false;
         isLighter = false;
@@ -25,30 +24,26 @@ public class SearchItem : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Item")
+        {
+            searchText.enabled = false;
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.name == "Pen" && Input.GetKeyDown(KeyCode.Z))
         {
             isPen = true;
-            //Debug.Log(1);
             searchText.enabled = false;
         }
         else if (other.gameObject.name == "Lighter" && Input.GetKeyDown(KeyCode.Z))
         {
             isLighter = true;
             searchText.enabled = false;
+            //GameManager.Instance._hasLighter = true;
         }
     }
-
-
-
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.gameObject.tag == "Item")
-        {
-            searchText.enabled = false;
-        }
-    }
-
-
 }

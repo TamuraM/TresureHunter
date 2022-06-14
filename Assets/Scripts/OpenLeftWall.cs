@@ -8,13 +8,6 @@ public class OpenLeftWall : MonoBehaviour
     [SerializeField] float _speed;
     [SerializeField] float _xRange;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (!_enemy.activeSelf)

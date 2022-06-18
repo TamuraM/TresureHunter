@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>アイテム欄からアイテムを選ぶ</summary>
 public class SelectItem : MonoBehaviour
 {
+    [SerializeField] InventoryManager _inventoryManager;
+    //使用範囲たち
     [SerializeField] GameObject _frontRange1Renderer;
     [SerializeField] GameObject _frontRange2Renderer;
     [SerializeField] GameObject _RightRangeRenderer;
@@ -11,7 +14,7 @@ public class SelectItem : MonoBehaviour
 
     private void Start()
     {
-        //_useText.enabled = false;
+        //使用範囲たちを消す
         _frontRange1Renderer.SetActive(false);
         _frontRange2Renderer.SetActive(false);
         _RightRangeRenderer.SetActive(false);
@@ -20,15 +23,21 @@ public class SelectItem : MonoBehaviour
 
     public void UsePen()
     {
-        //_useText.enabled = true;
+        //ペンを装備したことを表示
+        _inventoryManager._selectText.text = "ペンをそうびしてるよ";
+        //ペンを選んだらプレイヤーの正面の１つだけが使用範囲として出てくる
         _frontRange1Renderer.SetActive(true);
-        GameManager.Instance._isUseFakeItem = true;
+        //ペンは偽のアイテム
+        GameManager.Instance._selectedFakeItem = true;
     }
 
     public void UseLighter()
     {
-        //_useText.enabled = true;
+        //ライターを装備したことを表示
+        _inventoryManager._selectText.text = "ライターをそうびしてるよ";
+        //ライターを選んだらプレイヤーの正面の１つだけが使用範囲として出てくる
         _frontRange1Renderer.SetActive(true);
-        GameManager.Instance._isUseItem = true;
+        //ライターは本物のアイテム
+        GameManager.Instance._selectedItem = true;
     }
 }

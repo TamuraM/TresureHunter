@@ -26,8 +26,9 @@ public class GameManager : MonoBehaviour
     public bool _selectedFakeItem;
     //紙を倒した
     public bool _killPaper;
-    [SerializeField] Animator _leftWall;
-    [SerializeField] Animator _rightWall;
+    //壁が開くアニメーション
+    [SerializeField] Animator _leftWall;　//左
+    [SerializeField] Animator _rightWall; //右
 
     private void Update()
     {

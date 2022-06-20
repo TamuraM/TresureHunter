@@ -7,10 +7,10 @@ public class GameClear : MonoBehaviour
 {
     [SerializeField] SceneChanger _sceneChanger;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         //プレイヤーが当たったらクリアシーンに移行
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             _sceneChanger.LoadClearScene();
         }

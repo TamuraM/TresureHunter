@@ -4,5 +4,5 @@
 ## 使用したAsset
 ・[Low poly treasure chest pack](https://assetstore.unity.com/packages/3d/props/low-poly-treasure-chest-pack-126963#description)
 
-・QA Books
+・[QA Books](https://assetstore.unity.com/packages/3d/props/interior/qa-books-115415#publisher)
 

@@ -14,6 +14,4 @@ public class KillPlayer : MonoBehaviour
             _gameOver.LoadGameOverScene();
         }
     }
-
-
 }

@@ -6,7 +6,8 @@ using UnityEngine.UI;
 /// <summary>アイテム欄の管理</summary>
 public class InventoryManager : MonoBehaviour
 {
-    public SearchItem _searchItem;
+    [SerializeField] PenItem _penItem;
+    [SerializeField] LighterItem _lighterItem;
     //アイテム欄の背景
     [SerializeField] Image _inventoryPanel;
     //なにを選んでるかのテキスト
@@ -52,13 +53,13 @@ public class InventoryManager : MonoBehaviour
             _selectText.enabled = true;
             //アイテムを取ったらボタンと画像を表示
             //ペン
-            if (_searchItem._havePen)
+            if (_penItem._havePen)
             {
                 _penImage.enabled = true;
                 _penButton.enabled = true;
             }
             //ライター
-            if (_searchItem._haveLighter)
+            if (_lighterItem._haveLighter)
             {
                 _lighterImage.enabled = true;
                 _lighterButton.enabled = true;

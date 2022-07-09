@@ -23,6 +23,4 @@ public class PlayerMove : MonoBehaviour
 
         _rb.velocity = new Vector3(_hori, 0, _vert) * speed;
     }
-
-    
 }
